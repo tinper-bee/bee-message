@@ -3,10 +3,10 @@ import Notification from 'bee-notification';
 import classnames from 'classnames';
 
 let defaultDuration = 1.5;
-let defaultTop;
+let defaultTop = 10;
 let messageInstance;
 let key = 1;
-let clsPrefix = 'u-message';
+let clsPrefix = 'u-notification';
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
@@ -52,14 +52,21 @@ function notice(
     };
   }());
 }
+
+
 type ConfigContent = React.ReactNode | string;
+
+
 type ConfigDuration = number;
+
 export type ConfigOnClose = () => void;
-export interface ConfigOptions {
+
+export ConfigOptions {
   top?: number;
   duration?: number;
   clsPrefix?: string;
 }
+
 export default {
   info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'info', onClose);

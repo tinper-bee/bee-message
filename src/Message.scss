@@ -1,2 +1,15 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
+
+@import "../node_modules/bee-notification/src/Notification.scss";
+
+
+
+.u-message {
+    font-size: 12px;
+    position: fixed;
+    z-index: 1010;
+    width: 100%;
+    top: 16px;
+    left: 0;
+}
