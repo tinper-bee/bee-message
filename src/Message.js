@@ -2,7 +2,7 @@ import React from 'react';
 import Notification from 'bee-notification';
 import classnames from 'classnames';
 
-let defaultDuration = 1.5;
+let defaultDuration = 3;
 let defaultTop = 10;
 let messageInstance;
 let key = 1;
@@ -12,12 +12,13 @@ function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
     clsPrefix,
     transitionName: 'move-up',
-    style: { top: defaultTop }, // 覆盖原来的样式
+    style: { top: defaultTop, left: "50%" }, // 覆盖原来的样式
+    position: '',
   });
   return messageInstance;
 }
 
-type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading' | 'danger';
 
 function notice(
   content: React.ReactNode,
@@ -25,10 +26,10 @@ function notice(
   type: NoticeType,
   onClose?: () => void) {
   let iconType = ({
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'cross-circle',
-    warning: 'exclamation-circle',
+    info: 'uf uf-informationbutton',
+    success: 'uf uf-checkedsymbol',
+    danger: 'uf uf-crossmarkonablackcirclebackground',
+    warning: 'uf uf-exclamationsign',
     loading: 'loading',
   })[type];
 
@@ -36,9 +37,10 @@ function notice(
   instance.notice({
     key,
     duration,
-    style: {},
+    color: type,
+    style: {position: "relative", right: "50%"},
     content: (
-      <div className={`${clsPrefix}-custom-content ${clsPrefix}-${type}`}>
+      <div className={`${clsPrefix}-custom-content`}>
         <i className= { classnames(iconType) } />
         <span>{content}</span>
       </div>
@@ -60,12 +62,12 @@ type ConfigContent = React.ReactNode | string;
 type ConfigDuration = number;
 
 export type ConfigOnClose = () => void;
-
-export ConfigOptions {
-  top?: number;
-  duration?: number;
-  clsPrefix?: string;
-}
+//
+// export interfase ConfigOptions {
+//   top?: number;
+//   duration?: number;
+//   clsPrefix?: string;
+// }
 
 export default {
   info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
@@ -75,11 +77,7 @@ export default {
     return notice(content, duration, 'success', onClose);
   },
   error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'error', onClose);
-  },
-  // Departed usage, please use warning()
-  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'warning', onClose);
+    return notice(content, duration, 'danger', onClose);
   },
   warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'warning', onClose);

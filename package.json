@@ -33,7 +33,7 @@
     "pub": "bee-tools run pub"
   },
   "dependencies": {
-    "bee-notification": "file:///I:\\workspace\\iuap\\bee-notification",
+    "bee-notification": "0.0.3",
     "classnames": "^2.2.5",
     "tinper-bee-core": "latest"
   },
