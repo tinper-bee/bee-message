@@ -13,7 +13,7 @@ function getMessageInstance() {
     clsPrefix,
     transitionName: 'move-up',
     style: { top: defaultTop, left: "50%" }, // 覆盖原来的样式
-    position: '',
+    position: 'topRight',
   });
   return messageInstance;
 }

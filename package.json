@@ -33,12 +33,14 @@
     "pub": "bee-tools run pub"
   },
   "dependencies": {
-    "bee-notification": "0.0.3",
+    "bee-notification": "file:///I:\\workspace\\iuap\\bee-notification",
     "classnames": "^2.2.5",
     "tinper-bee-core": "latest"
   },
   "devDependencies": {
-    "bee-button": "^0.1.4",
+    "bee-button": "^0.1.8",
+    "bee-layout": "^0.1.2",
+    "bee-panel": "0.0.4",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",
     "enzyme": "^2.4.1",
