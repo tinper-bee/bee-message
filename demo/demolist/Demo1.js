@@ -1,6 +1,6 @@
 /**
  *
- * @title 不同方向的气泡提示
+ * @title 不同颜色的消息提醒
  *
  */
 
@@ -29,27 +29,27 @@ class Demo1 extends Component {
             <Button
                 colors="info"
                 onClick={info}>
-                Display normal message
+                info
             </Button>
             <Button
                 colors="danger"
                 onClick={danger}>
-                Display normal message
+                danger
             </Button>
             <Button
                 colors="warning"
                 onClick={warning}>
-                Display normal message
+                warning
             </Button>
             <Button
                 colors="success"
                 onClick={success}>
-                Display normal message
+                success
             </Button>
             <Button
                 colors="primary"
                 onClick={loading}>
-                Display normal message
+                normal
             </Button>
             </div>
         )
