@@ -14,20 +14,55 @@
 
 react bee-message component for tinper-bee
 
-some description...
+全局展示操作反馈信息。
+
+应用场景：
+- 可提供成功、警告和错误等反馈信息。
+- 当需要提醒但是不打断操作时，是一种不打断用户操作的轻量级提示方式。
 
 ## 使用方法
 
 ```js
+const info = function () {
+  Message.info('This is a info message');
+};
+
+class Demo extends Component {
+    render () {
+        return (
+            <Button
+                colors="info"
+                onClick={info}>
+                info
+            </Button>
+        )
+    }
+}
 
 ```
 
+#### 样式引入
+
+- 可以使用link引入build目录下Message.css
+```
+<link rel="stylesheet" href="./node_modules/bee-message/build/Message.css">
+```
+- 可以在js中import样式
+```js
+import "./node_modules/bee-message/src/Message.scss"
+//或是
+import "./node_modules/bee-message/build/Message.css"
+```
 
 
 ## API
 
 |参数|说明|类型|默认值|
-|:--|:---:|:--:|---:|
+|:---|:-----|:----|:------|
+|content|内容|string/number|-|
+|duration|显示时间|number|3|
+|onClose|关闭时的钩子函数|function|-|
+|position|位置|top/bottom/topRight/topLeft/bottomRight/bottomLeft|top|
 
 #### 开发调试
 
