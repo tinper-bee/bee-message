@@ -3,13 +3,16 @@
 
 @import "../node_modules/bee-notification/src/Notification.scss";
 
-
+$message-font-size: 12px;
+$zIndex-message: 1010;
+$message-top: 16px;
+$message-left:0;
 
 .u-message {
-    font-size: 12px;
+    font-size: $message-font-size;
     position: fixed;
-    z-index: 1010;
+    z-index: $zIndex-message;
     width: 100%;
-    top: 16px;
-    left: 0;
+    top: $message-top;
+    left: $message-left;
 }
