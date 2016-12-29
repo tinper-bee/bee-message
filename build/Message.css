@@ -33,133 +33,787 @@
 /* Typography */
 /* Shadows */
 /* Animations */
-/*  IMAGES  */
-/* 默认颜色 */
-/* 客户化 */
-/* 波纹效果 */
-/*贝塞尔曲线动画 */
-/* 阴影 */
-/* ==========  文本字体  ========== */
-/* 控件 */
-/* 不同背景下对应的文字颜色 */
-/* UButton */
-/* UText */
-/*  Navlayout  */
-/* gridlayout */
-/* menu */
-/* Alert */
-/* Checkbox */
-/*  Radio  */
-/* Switch  */
-/* loading */
-/* datetimepicker */
-/* message */
-/* DATA TABLE */
-/* tooltip*/
-/* 进度条 */
-/* ==========  Content Tabs  ========== */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* ==========  Card  ========== */
-/* ============ Forms ============*/
-/* BADGE */
-/* Typography */
-/* Shadows */
-/* Animations */
-.u-notification {
+@-webkit-keyframes antSlideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); } }
+
+@keyframes antSlideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); } }
+
+@-webkit-keyframes antSlideUpOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); } }
+
+@keyframes antSlideUpOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); } }
+
+@-webkit-keyframes antSlideDownIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); } }
+
+@keyframes antSlideDownIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); } }
+
+@-webkit-keyframes antSlideDownOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); } }
+
+@keyframes antSlideDownOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8); } }
+
+@-webkit-keyframes antSlideLeftIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); } }
+
+@keyframes antSlideLeftIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); } }
+
+@-webkit-keyframes antSlideLeftOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); } }
+
+@keyframes antSlideLeftOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); } }
+
+@-webkit-keyframes antSlideRightIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); } }
+
+@keyframes antSlideRightIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); } }
+
+@-webkit-keyframes antSlideRightOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); } }
+
+@keyframes antSlideRightOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8); } }
+
+@-webkit-keyframes antSwingIn {
+  0%,
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px); }
+  20% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px); }
+  40% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px); }
+  60% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  80% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px); } }
+
+@keyframes antSwingIn {
+  0%,
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px); }
+  20% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px); }
+  40% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px); }
+  60% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  80% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px); } }
+
+@-webkit-keyframes antZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+    transform: scale(0.2); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+    transform: scale(0.2); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomOut {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+    transform: scale(0.2); } }
+
+@keyframes antZoomOut {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+    transform: scale(0.2); } }
+
+@-webkit-keyframes antZoomBigIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomBigIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomBigOut {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes antZoomBigOut {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@-webkit-keyframes antZoomUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomUpOut {
+  0% {
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes antZoomUpOut {
+  0% {
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@-webkit-keyframes antZoomLeftIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomLeftIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomLeftOut {
+  0% {
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes antZoomLeftOut {
+  0% {
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@-webkit-keyframes antZoomRightIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomRightIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomRightOut {
+  0% {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes antZoomRightOut {
+  0% {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@-webkit-keyframes antZoomDownIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@keyframes antZoomDownIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+  100% {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes antZoomDownOut {
+  0% {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes antZoomDownOut {
+  0% {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); } }
+
+@keyframes rcMenuOpenZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0); }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1); } }
+
+@keyframes rcMenuOpenZoomOut {
+  0% {
+    transform: scale(1, 1); }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0); } }
+
+@keyframes rcMenuOpenSlideUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0); }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1); } }
+
+@keyframes rcMenuOpenSlideUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1); }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0); } }
+
+.u-message {
+  font-size: 12px;
   position: fixed;
-  z-index: 1000; }
-  .u-notification-topRight {
-    top: 65px;
-    right: 10%; }
-  .u-notification-bottomRight {
-    bottom: 165px;
-    right: 10%; }
-  .u-notification-notice {
-    padding: 7px 20px 7px 10px;
-    border-radius: 3px 3px;
-    border: 1px solid #999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 0px solid transparent;
-    background: #fff;
-    display: block;
-    width: auto;
+  z-index: 1010;
+  width: 100%; }
+  .u-message-notice {
+    position: absolute;
+    padding: 0;
+    box-shadow: 0 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.14), 0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.2), 0 0.1rem 0.8rem 0 rgba(0, 0, 0, 0.12);
+    background: rgb(66,66,66);
     line-height: 1.5;
-    vertical-align: middle;
-    position: relative;
-    margin: 10px 0; }
-    .u-notification-notice-closable {
+    overflow: hidden;
+    color: #fff; }
+    .u-message-notice-description {
+      font-size: 12px;
+      word-wrap: break-word;
+      vertical-align: middle; }
+      .u-message-notice-description-content {
+        padding: 15px;
+        margin-left: 45px; }
+      .u-message-notice-description-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 45px;
+        text-align: center;
+        background-color: #000; }
+        .u-message-notice-description-icon .uf {
+          font-size: 30px; }
+    .u-message-notice-closable {
       padding-right: 20px; }
-    .u-notification-notice-close {
+    .u-message-notice-close {
       position: absolute;
-      right: 5px;
-      top: 3px;
-      color: #000;
+      right: 15px;
+      top: 15px;
       cursor: pointer;
       outline: none;
       font-size: 16px;
       font-weight: 700;
       line-height: 1;
       text-shadow: 0 1px 0 #fff;
-      filter: alpha(opacity=20);
-      opacity: .2;
+      filter: alpha(opacity=80);
+      opacity: .8;
       text-decoration: none; }
-      .u-notification-notice-close-x:after {
+      .u-message-notice-close-x:after {
         content: '×'; }
-      .u-notification-notice-close:hover {
+      .u-message-notice-close:hover {
         opacity: 1;
         filter: alpha(opacity=100);
         text-decoration: none; }
-    .u-notification-notice-success {
+  .u-message-notice-light {
+    background-color: #fff;
+    color: rgb(66,66,66); }
+    .u-message-notice-light .u-message-notice-description-icon {
+      background-color: rgb(224,224,224); }
+  .u-message-notice-success {
+    background-color: rgb(76,175,80);
+    color: #fff; }
+    .u-message-notice-success .u-message-notice-description-icon {
+      background-color: rgb(56,142,60); }
+  .u-message-notice-danger {
+    background-color: rgb(244,67,54);
+    color: #fff; }
+    .u-message-notice-danger .u-message-notice-description-icon {
+      background-color: rgb(211,47,47); }
+  .u-message-notice-info {
+    background-color: rgb(0,188,212);
+    color: #fff; }
+    .u-message-notice-info .u-message-notice-description-icon {
+      background-color: rgb(0,151,167); }
+  .u-message-notice-warning {
+    background-color: rgb(255,152,0);
+    color: #fff; }
+    .u-message-notice-warning .u-message-notice-description-icon {
+      background-color: rgb(245,124,0); }
+  .u-message-notice-successlight {
+    background-color: rgb(200,230,201);
+    color: #000; }
+    .u-message-notice-successlight .u-message-notice-description-icon {
       background-color: rgb(76,175,80);
       color: #fff; }
-    .u-notification-notice-warning {
-      background-color: rgb(255,152,0);
-      color: #fff; }
-    .u-notification-notice-info {
-      background-color: rgb(0,188,212);
-      color: #fff; }
-    .u-notification-notice-danger {
+  .u-message-notice-dangerlight {
+    background-color: rgb(255,205,210);
+    color: #000; }
+    .u-message-notice-dangerlight .u-message-notice-description-icon {
       background-color: rgb(244,67,54);
       color: #fff; }
-    .u-notification-notice-dark {
-      background-color: rgb(97,97,97);
+  .u-message-notice-infolight {
+    background-color: rgb(178,235,242);
+    color: #000; }
+    .u-message-notice-infolight .u-message-notice-description-icon {
+      background-color: rgb(0,188,212);
       color: #fff; }
-  .u-notification-fade-enter {
-    opacity: 0;
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-    animation-play-state: paused; }
-  .u-notification-fade-leave {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-    animation-play-state: paused; }
-  .u-notification-fade-enter + .u-notification-fade-enter-active {
-    animation-name: rcNotificationFadeIn;
-    animation-play-state: running; }
-  .u-notification-fade-leave + .u-notification-fade-leave-active {
-    animation-name: rcDialogFadeOut;
-    animation-play-state: running; }
+  .u-message-notice-warninglight {
+    background-color: rgb(255,224,178);
+    color: #000; }
+    .u-message-notice-warninglight .u-message-notice-description-icon {
+      background-color: rgb(255,152,0);
+      color: #fff; }
 
-@keyframes uNotificationFadeIn {
+.message-fade-effect, .u-message-left-enter,
+.u-message-left-appear, .u-message-right-enter,
+.u-message-right-appear, .u-message-top-enter,
+.u-message-top-appear, .u-message-bottom-enter,
+.u-message-bottom-appear, .u-message-left-leave,
+.u-message-right-leave,
+.u-message-top-leave,
+.u-message-bottom-leave {
+  animation-duration: 0.24s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); }
+
+.u-message-left-enter,
+.u-message-left-appear, .u-message-right-enter,
+.u-message-right-appear, .u-message-top-enter,
+.u-message-top-appear, .u-message-bottom-enter,
+.u-message-bottom-appear {
+  opacity: 0;
+  animation-play-state: paused; }
+
+.u-message-left-leave,
+.u-message-right-leave,
+.u-message-top-leave,
+.u-message-bottom-leave {
+  animation-duration: 0.2s;
+  animation-play-state: paused; }
+
+.u-message-left-enter.u-message-left-enter-active,
+.u-message-left-appear.u-message-left-appear-active {
+  animation-name: uMessageLeftIn;
+  animation-play-state: running; }
+
+.u-message-left-leave.u-message-left-leave-active {
+  animation-name: uMessageFadeOut;
+  animation-play-state: running; }
+
+.u-message-right-enter.u-message-right-enter-active,
+.u-message-right-appear.u-message-right-appear-active {
+  animation-name: uMessageRightIn;
+  animation-play-state: running; }
+
+.u-message-right-leave.u-message-right-leave-active {
+  animation-name: uMessageFadeOut;
+  animation-play-state: running; }
+
+.u-message-top-enter.u-message-top-enter-active,
+.u-message-top-appear.u-message-top-appear-active {
+  animation-name: uMessageMoveUp;
+  animation-play-state: running; }
+
+.u-message-top-leave.u-message-top-leave-active {
+  animation-name: uMessageFadeOut;
+  animation-play-state: running; }
+
+.u-message-bottom-enter.u-message-bottom-enter-active,
+.u-message-bottom-appear.u-message-bottom-appear-active {
+  animation-name: uMessageMoveDown;
+  animation-play-state: running; }
+
+.u-message-bottom-leave.u-message-bottom-leave-active {
+  animation-name: uMessageFadeOut;
+  animation-play-state: running; }
+
+@keyframes uMessageLeftIn {
   0% {
-    opacity: 0; }
+    opacity: 0;
+    right: 30px; }
   100% {
+    right: 0;
     opacity: 1; } }
 
-@keyframes uDialogFadeOut {
+@keyframes uMessageRightIn {
   0% {
-    opacity: 1; }
+    opacity: 0;
+    left: 30px; }
   100% {
-    opacity: 0; } }
+    left: 0;
+    opacity: 1; } }
 
-.u-message {
-  font-size: 12px;
-  position: fixed;
-  z-index: 1010;
-  width: 100%;
-  top: 16px;
-  left: 0; }
+@keyframes uMessageMoveUp {
+  0% {
+    opacity: 0;
+    top: -30px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+
+@keyframes uMessageMoveDown {
+  0% {
+    opacity: 0;
+    bottom: -78px; }
+  100% {
+    bottom: -48px;
+    opacity: 1; } }
+
+@keyframes uMessageFadeOut {
+  0% {
+    opacity: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 150px; }
+  100% {
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0; } }

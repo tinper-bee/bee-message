@@ -1,23 +1,27 @@
 /**
  *
  * @title 不同颜色的消息提醒
+ * @description 提供10种颜色，包括黑色白色及四个语义色及四个浅语义色
  *
  */
 
  const info = function () {
-   Message.info('This is a info message');
+   Message.create({content: 'This is a Info message', color: 'info'});
  };
  const danger = function () {
-   Message.error('This is a error message');
+   Message.create({content: 'This is a danger message', color: 'danger'});
  };
  const success = function () {
-   Message.success('This is a success message');
+   Message.create({content: 'This is a success message', color: 'success'});
  };
  const warning = function () {
-   Message.warning('This is a warning message');
+   Message.create({content: 'This is a warning message', color: 'warning'});
  };
  const loading = function () {
-   Message.loading('This is a loading message');
+   Message.create({content: 'This is a dark message', color: 'dark'});
+ };
+ const light = function () {
+   Message.create({content: 'This is a light message', color: 'light'});
  };
 class Demo1 extends Component {
     constructor(props){
@@ -25,7 +29,7 @@ class Demo1 extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="paddingDemo">
             <Button
                 colors="info"
                 onClick={info}>
@@ -49,7 +53,12 @@ class Demo1 extends Component {
             <Button
                 colors="primary"
                 onClick={loading}>
-                normal
+                dark
+            </Button>
+            <Button
+                shape="border"
+                onClick={light}>
+                light
             </Button>
             </div>
         )

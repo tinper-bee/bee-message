@@ -1,26 +1,27 @@
 /**
  *
  * @title 不同显示位置的消息提醒
+ * @description 一个页面的message只能设置一中显示位置，提供六种位置选择，查看每种示例，需每次刷新
  *
  */
 
  const top = function () {
-   Message.info('This is a top message',3,null,'top');
+   Message.create({content: 'This is a Info message', position: 'top'});
  };
  const bottom = function () {
-   Message.info('This is a bottom message',null,null,'bottom');
+   Message.create({content: 'This is a Info message', position: 'bottom'});
  };
  const topRight = function () {
-   Message.info('This is a topRight message',3,null,'topRight');
+   Message.create({content: 'This is a Info message', position: 'topRight'});
  };
  const topLeft = function () {
-   Message.info('This is a topLeft message',3,null,'topLeft');
+   Message.create({content: 'This is a Info message', position: 'topLeft'});
  };
  const bottomRight = function () {
-   Message.info('This is a bottomRight message',3,null,'bottomRight');
+   Message.create({content: 'This is a Info message', position: 'bottomRight'});
  };
  const bottomLeft = function () {
-   Message.info('This is a bottomLeft message',3,null,'bottomLeft');
+   Message.create({content: 'This is a Info message', position: 'bottomLeft'});
  };
 class Demo2 extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class Demo2 extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="paddingDemo">
             <Button
                 colors="info"
                 onClick={top}>

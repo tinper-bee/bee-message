@@ -2,11 +2,16 @@ import React from 'react';
 import Notification from 'bee-notification';
 import classnames from 'classnames';
 
-let defaultDuration = 3;
-let defaultTop = 10;
+let defaultDuration = 1.5;
+let defaultTop = 0;
+let defaultBottom = 48;
+let bottom = 90;
+let padding = 30;
+let width =200;
 let messageInstance;
 let key = 1;
-let clsPrefix = 'u-notification';
+let clsPrefix = 'u-message';
+const noop = () => {};
 
 let positionObj = {
     "top": {
@@ -16,56 +21,62 @@ let positionObj = {
         notificationStyle: {
             top: defaultTop,
             width: "100%"
-        }
+        },
+        transitionName: 'top'
     },
     "bottom": {
         messageStyle: {
             width: "100%"
         },
         notificationStyle: {
-            bottom: 10,
+            bottom: defaultBottom,
             width: "100%"
-        }
+        },
+        transitionName: 'bottom'
     },
     "topRight": {
         messageStyle: {
-            width:  200
+            width:  width
         },
         notificationStyle: {
-            top: defaultTop,
-            right: "10%",
-            width: "auto"
-        }
+            top: padding,
+            right: padding,
+            width: width
+        },
+        transitionName: 'right'
     },
     "bottomRight": {
         messageStyle: {
-            width:  200
+            width:  width
         },
         notificationStyle: {
-            bottom: 20,
-            right: "10%",
-            width: "auto"
-        }
+            bottom: bottom,
+            right: padding,
+            width: width
+        },
+        transitionName: 'right'
     },
     "topLeft": {
         messageStyle: {
-            width:  200
+            width:  width
         },
         notificationStyle: {
-            top: defaultTop,
-            left: "10%",
-            width: "auto"
-        }
+            top: padding,
+            left: padding,
+            width: width
+        },
+        transitionName: 'left'
     },
     "bottomLeft": {
         messageStyle: {
-            width: 200
+            width: width
         },
         notificationStyle: {
-            bottom: 20,
-            left: "10%",
-            width: "auto"
-        }
+            bottom: bottom,
+            left: padding,
+            width: width
+        },
+        transitionName: 'left'
     }
 }
 
@@ -73,28 +84,28 @@ function getMessageInstance(position = 'top') {
     var style = positionObj[position].notificationStyle;
   messageInstance = messageInstance || Notification.newInstance({
     clsPrefix,
-    transitionName: 'move-up',
+    transitionName: `${clsPrefix}-${positionObj[position].transitionName}`,
     style: style, // 覆盖原来的样式
     position: '',
   });
   return messageInstance;
 }
 
-type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading' | 'danger';
 
-function notice(
-  content: React.ReactNode,
-  duration: number = defaultDuration,
-  type: NoticeType,
-  onClose?: () => void,
-  position = "top"
-) {
+
+function notice(content, duration, type, onClose, position) {
   let iconType = ({
-    info: 'uf uf-informationbutton',
-    success: 'uf uf-checkedsymbol',
-    danger: 'uf uf-crossmarkonablackcirclebackground',
-    warning: 'uf uf-exclamationsign',
-    loading: 'loading',
+    info: 'uf uf-i-c-2',
+    success: 'uf uf-correct',
+    danger: 'uf uf-close-c',
+    warning: 'uf uf-exc-t',
+    light: 'uf uf-notification',
+    dark: 'uf uf-bubble',
+    news: 'uf uf-bell',
+    infolight: 'uf uf-i-c-2',
+    successlight: 'uf uf-correct',
+    dangerlight: 'uf uf-close-c',
+    warninglight: 'uf uf-exc-t',
   })[type];
 
   let style = positionObj[position].messageStyle;
@@ -106,9 +117,11 @@ function notice(
     color: type,
     style: style,
     content: (
-      <div className={`${clsPrefix}-custom-content`}>
-        <i className= { classnames(iconType) } />
-        <span>{content}</span>
+      <div>
+        <div className={`${clsPrefix}-notice-description-icon`}>
+            <i className= { classnames(iconType) } />
+        </div>
+        <div className={`${clsPrefix}-notice-description-content`}>{content}</div>
       </div>
     ),
     onClose,
@@ -121,37 +134,16 @@ function notice(
   }());
 }
 
-
-type ConfigContent = React.ReactNode | string;
-
-
-type ConfigDuration = number;
-
-export type ConfigOnClose = () => void;
-//
-// export interfase ConfigOptions {
-//   top?: number;
-//   duration?: number;
-//   clsPrefix?: string;
-// }
-
 export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose, position = "top") {
-    return notice(content, duration, 'info', onClose, position);
+  create(obj) {
+      let content = obj.content || '';
+      let duration = typeof obj.duration == undefined ? defaultDuration : obj.duration;
+      let color = obj.color || 'dark';
+      let onClose = obj.onClose || noop;
+      let position = obj.position || "top";
+    return notice(content, duration, color, onClose, position);
   },
-  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose, position = "top") {
-    return notice(content, duration, 'success', onClose, position);
-  },
-  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose, position = "top") {
-    return notice(content, duration, 'danger', onClose, position);
-  },
-  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose, position = "top") {
-    return notice(content, duration, 'warning', onClose, position);
-  },
-  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose, position = "top") {
-    return notice(content, duration, 'loading', onClose, position);
-  },
-  config(options: ConfigOptions) {
+  config(options) {
     if (options.top !== undefined) {
       defaultTop = options.top;
     }
@@ -160,6 +152,15 @@ export default {
     }
     if (options.clsPrefix !== undefined) {
       clsPrefix = options.clsPrefix;
+    }
+    if (options.defaultBottom !== undefined) {
+      defaultBottom = options.defaultBottom;
+    }
+    if (options.bottom !== undefined) {
+      bottom = options.bottom;
+    }
+    if (options.width !== undefined) {
+      bottom = options.width;
     }
   },
   destroy() {

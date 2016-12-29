@@ -14,23 +14,27 @@ const CARETUP = <i className="uf uf-chevronarrowup"></i>;
 /**
  *
  * @title 不同颜色的消息提醒
+ * @description 提供10种颜色，包括黑色白色及四个语义色及四个浅语义色
  *
  */
 
  const info = function () {
-   Message.info('This is a info message');
+   Message.create({content: 'This is a Info message', color: 'info'});
  };
  const danger = function () {
-   Message.error('This is a error message');
+   Message.create({content: 'This is a danger message', color: 'danger'});
  };
  const success = function () {
-   Message.success('This is a success message');
+   Message.create({content: 'This is a success message', color: 'success'});
  };
  const warning = function () {
-   Message.warning('This is a warning message');
+   Message.create({content: 'This is a warning message', color: 'warning'});
  };
  const loading = function () {
-   Message.loading('This is a loading message');
+   Message.create({content: 'This is a dark message', color: 'dark'});
+ };
+ const light = function () {
+   Message.create({content: 'This is a light message', color: 'light'});
  };
 class Demo1 extends Component {
     constructor(props){
@@ -38,7 +42,7 @@ class Demo1 extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="paddingDemo">
             <Button
                 colors="info"
                 onClick={info}>
@@ -62,7 +66,12 @@ class Demo1 extends Component {
             <Button
                 colors="primary"
                 onClick={loading}>
-                normal
+                dark
+            </Button>
+            <Button
+                shape="border"
+                onClick={light}>
+                light
             </Button>
             </div>
         )
@@ -71,26 +80,27 @@ class Demo1 extends Component {
 /**
  *
  * @title 不同显示位置的消息提醒
+ * @description 一个页面的message只能设置一中显示位置，提供六种位置选择，查看每种示例，需每次刷新
  *
  */
 
  const top = function () {
-   Message.info('This is a top message',3,null,'top');
+   Message.create({content: 'This is a Info message', position: 'top'});
  };
  const bottom = function () {
-   Message.info('This is a bottom message',null,null,'bottom');
+   Message.create({content: 'This is a Info message', position: 'bottom'});
  };
  const topRight = function () {
-   Message.info('This is a topRight message',3,null,'topRight');
+   Message.create({content: 'This is a Info message', position: 'topRight'});
  };
  const topLeft = function () {
-   Message.info('This is a topLeft message',3,null,'topLeft');
+   Message.create({content: 'This is a Info message', position: 'topLeft'});
  };
  const bottomRight = function () {
-   Message.info('This is a bottomRight message',3,null,'bottomRight');
+   Message.create({content: 'This is a Info message', position: 'bottomRight'});
  };
  const bottomLeft = function () {
-   Message.info('This is a bottomLeft message',3,null,'bottomLeft');
+   Message.create({content: 'This is a Info message', position: 'bottomLeft'});
  };
 class Demo2 extends Component {
     constructor(props){
@@ -98,7 +108,7 @@ class Demo2 extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="paddingDemo">
             <Button
                 colors="info"
                 onClick={top}>
@@ -133,7 +143,7 @@ class Demo2 extends Component {
         )
     }
 }
-var DemoArray = [{"example":<Demo1 />,"title":" 不同颜色的消息提醒","code":"/**\n *\n * @title 不同颜色的消息提醒\n *\n */\n\n const info = function () {\n   Message.info('This is a info message');\n };\n const danger = function () {\n   Message.error('This is a error message');\n };\n const success = function () {\n   Message.success('This is a success message');\n };\n const warning = function () {\n   Message.warning('This is a warning message');\n };\n const loading = function () {\n   Message.loading('This is a loading message');\n };\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n    }\n    render () {\n        return (\n            <div>\n            <Button\n                colors=\"info\"\n                onClick={info}>\n                info\n            </Button>\n            <Button\n                colors=\"danger\"\n                onClick={danger}>\n                danger\n            </Button>\n            <Button\n                colors=\"warning\"\n                onClick={warning}>\n                warning\n            </Button>\n            <Button\n                colors=\"success\"\n                onClick={success}>\n                success\n            </Button>\n            <Button\n                colors=\"primary\"\n                onClick={loading}>\n                normal\n            </Button>\n            </div>\n        )\n    }\n}\n","desc":""},{"example":<Demo2 />,"title":" 不同显示位置的消息提醒","code":"/**\n *\n * @title 不同显示位置的消息提醒\n *\n */\n\n const top = function () {\n   Message.info('This is a top message',3,null,'top');\n };\n const bottom = function () {\n   Message.info('This is a bottom message',null,null,'bottom');\n };\n const topRight = function () {\n   Message.info('This is a topRight message',3,null,'topRight');\n };\n const topLeft = function () {\n   Message.info('This is a topLeft message',3,null,'topLeft');\n };\n const bottomRight = function () {\n   Message.info('This is a bottomRight message',3,null,'bottomRight');\n };\n const bottomLeft = function () {\n   Message.info('This is a bottomLeft message',3,null,'bottomLeft');\n };\nclass Demo2 extends Component {\n    constructor(props){\n        super(props);\n    }\n    render () {\n        return (\n            <div>\n            <Button\n                colors=\"info\"\n                onClick={top}>\n                top\n            </Button>\n            <Button\n                colors=\"info\"\n                onClick={bottom}>\n                bottom\n            </Button>\n            <Button\n                colors=\"info\"\n                onClick={topRight}>\n                topRight\n            </Button>\n            <Button\n                colors=\"info\"\n                onClick={topLeft}>\n                topLeft\n            </Button>\n            <Button\n                colors=\"info\"\n                onClick={bottomRight}>\n                bottomRight\n            </Button>\n            <Button\n                colors=\"info\"\n                onClick={bottomLeft}>\n                bottomLeft\n            </Button>\n            </div>\n        )\n    }\n}\n","desc":""}]
+var DemoArray = [{"example":<Demo1 />,"title":" 不同颜色的消息提醒","code":"/**\n *\n * @title 不同颜色的消息提醒\n * @description 提供10种颜色，包括黑色白色及四个语义色及四个浅语义色\n *\n */\n\n const info = function () {\n   Message.create({content: 'This is a Info message', color: 'info'});\n };\n const danger = function () {\n   Message.create({content: 'This is a danger message', color: 'danger'});\n };\n const success = function () {\n   Message.create({content: 'This is a success message', color: 'success'});\n };\n const warning = function () {\n   Message.create({content: 'This is a warning message', color: 'warning'});\n };\n const loading = function () {\n   Message.create({content: 'This is a dark message', color: 'dark'});\n };\n const light = function () {\n   Message.create({content: 'This is a light message', color: 'light'});\n };\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n    }\n    render () {\n        return (\n            <div className=\"paddingDemo\">\n            <Button\n                colors=\"info\"\n                onClick={info}>\n                info\n            </Button>\n            <Button\n                colors=\"danger\"\n                onClick={danger}>\n                danger\n            </Button>\n            <Button\n                colors=\"warning\"\n                onClick={warning}>\n                warning\n            </Button>\n            <Button\n                colors=\"success\"\n                onClick={success}>\n                success\n            </Button>\n            <Button\n                colors=\"primary\"\n                onClick={loading}>\n                dark\n            </Button>\n            <Button\n                shape=\"border\"\n                onClick={light}>\n                light\n            </Button>\n            </div>\n        )\n    }\n}\n","desc":" 提供10种颜色，包括黑色白色及四个语义色及四个浅语义色"},{"example":<Demo2 />,"title":" 不同显示位置的消息提醒","code":"/**\r\n *\r\n * @title 不同显示位置的消息提醒\r\n * @description 一个页面的message只能设置一中显示位置，提供六种位置选择，查看每种示例，需每次刷新\r\n *\r\n */\r\n\r\n const top = function () {\r\n   Message.create({content: 'This is a Info message', position: 'top'});\r\n };\r\n const bottom = function () {\r\n   Message.create({content: 'This is a Info message', position: 'bottom'});\r\n };\r\n const topRight = function () {\r\n   Message.create({content: 'This is a Info message', position: 'topRight'});\r\n };\r\n const topLeft = function () {\r\n   Message.create({content: 'This is a Info message', position: 'topLeft'});\r\n };\r\n const bottomRight = function () {\r\n   Message.create({content: 'This is a Info message', position: 'bottomRight'});\r\n };\r\n const bottomLeft = function () {\r\n   Message.create({content: 'This is a Info message', position: 'bottomLeft'});\r\n };\r\nclass Demo2 extends Component {\r\n    constructor(props){\r\n        super(props);\r\n    }\r\n    render () {\r\n        return (\r\n            <div className=\"paddingDemo\">\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={top}>\r\n                top\r\n            </Button>\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={bottom}>\r\n                bottom\r\n            </Button>\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={topRight}>\r\n                topRight\r\n            </Button>\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={topLeft}>\r\n                topLeft\r\n            </Button>\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={bottomRight}>\r\n                bottomRight\r\n            </Button>\r\n            <Button\r\n                colors=\"info\"\r\n                onClick={bottomLeft}>\r\n                bottomLeft\r\n            </Button>\r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":" 一个页面的message只能设置一中显示位置，提供六种位置选择，查看每种示例，需每次刷新"}]
 
 
 class Demo extends Component {
