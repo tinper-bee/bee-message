@@ -6,9 +6,10 @@ import ReactDOM from 'react-dom';
 import Button from 'bee-button';
 import Message from '../src';
 
-const CARET = <i className="uf uf-chevronarrowdown"></i>;
+const CARET = <i className="uf uf-arrow-down"></i>;
 
-const CARETUP = <i className="uf uf-chevronarrowup"></i>;
+const CARETUP = <i className="uf uf-arrow-up"></i>;
+
 
 
 {demolist}
@@ -37,7 +38,7 @@ class Demo extends Component {
             </Button>
         );
 
-    
+
         return (
             <Col md={12} >
                 <h3>{ title }</h3>
