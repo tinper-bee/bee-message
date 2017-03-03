@@ -6,7 +6,7 @@
  */
 
  const info = function () {
-   Message.create({content: 'This is a Info message', color: 'info'});
+   Message.create({content: 'This is a Info message', color: 'info', duration: null});
  };
  const danger = function () {
    Message.create({content: 'This is a danger message', color: 'danger'});
