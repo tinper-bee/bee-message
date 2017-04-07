@@ -1,6 +1,6 @@
 {
   "name": "bee-message",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "Message ui component for react",
   "keywords": [
     "react",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "bee-icon": "latest",
-    "bee-notification": "latest",
+    "bee-notification": "^0.2.23",
     "classnames": "^2.2.5",
     "tinper-bee-core": "latest"
   },

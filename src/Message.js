@@ -111,6 +111,7 @@ function notice(content, duration, type, onClose, position) {
   let style = positionObj[position].messageStyle;
 
   let instance = getMessageInstance(position);
+
   instance.notice({
     key,
     duration,
