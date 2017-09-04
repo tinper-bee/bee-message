@@ -5,6 +5,12 @@
  *
  */
 
+import { Con, Row, Col } from 'bee-layout';
+import { Panel } from 'bee-panel';
+import React, { Component } from 'react';
+import Button from 'bee-button';
+import Message from '../../src';
+
  const top = function () {
    Message.create({content: 'This is a Info message', position: 'top'});
  };
@@ -64,3 +70,5 @@ class Demo2 extends Component {
         )
     }
 }
+
+export default Demo2;

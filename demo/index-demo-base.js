@@ -4,7 +4,7 @@ import { Panel } from 'bee-panel';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'bee-button';
-import Message from '../src';
+
 
 const CARET = <i className="uf uf-arrow-down"></i>;
 
