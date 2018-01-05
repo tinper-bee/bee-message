@@ -1,10 +1,6 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 
-
-
-
-
 .u-message {
     font-size: $message-font-size;
     position: fixed;
@@ -161,7 +157,7 @@
      .u-message-left-leave,
      .u-message-right-leave,
      .u-message-top-leave,
-     .u-message-bottom-leave, {
+     .u-message-bottom-leave {
        @extend .message-fade-effect;
        animation-duration: 0.2s;
        animation-play-state: paused;
