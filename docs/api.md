@@ -35,3 +35,4 @@ Messsage.create({});
 |color|颜色|dark/light/success/danger/warning/info/successlight/dangerlight/warninglight/infolight|'dark'|
 |onClose|关闭时的钩子函数|function|-|
 |position|位置|top/bottom/topRight/topLeft/bottomRight/bottomLeft|top|
+|style|样式|object|{}|

@@ -6349,6 +6349,8 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -6454,7 +6456,7 @@
 	    return messageInstance;
 	}
 	
-	function notice(content, duration, type, onClose, position) {
+	function notice(content, duration, type, onClose, position, style) {
 	    var iconType = {
 	        info: 'uf uf-i-c-2',
 	        success: 'uf uf-correct',
@@ -6469,7 +6471,7 @@
 	        warninglight: 'uf uf-exc-t'
 	    }[type];
 	
-	    var style = positionObj[position].messageStyle;
+	    var positionStyle = positionObj[position].messageStyle;
 	
 	    var instance = getMessageInstance(position);
 	
@@ -6477,7 +6479,7 @@
 	        key: key,
 	        duration: duration,
 	        color: type,
-	        style: style,
+	        style: _extends({}, positionStyle, style),
 	        content: _react2['default'].createElement(
 	            'div',
 	            null,
@@ -6509,7 +6511,8 @@
 	        var color = obj.color || 'dark';
 	        var onClose = obj.onClose || noop;
 	        var position = obj.position || "top";
-	        return notice(content, duration, color, onClose, position);
+	        var style = obj.style || {};
+	        return notice(content, duration, color, onClose, position, style);
 	    },
 	    config: function config(options) {
 	        if (options.top !== undefined) {

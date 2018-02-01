@@ -93,7 +93,7 @@ function getMessageInstance(position = 'top') {
 
 
 
-function notice(content, duration, type, onClose, position) {
+function notice(content, duration, type, onClose, position, style) {
   let iconType = ({
     info: 'uf uf-i-c-2',
     success: 'uf uf-correct',
@@ -108,7 +108,7 @@ function notice(content, duration, type, onClose, position) {
     warninglight: 'uf uf-exc-t',
   })[type];
 
-  let style = positionObj[position].messageStyle;
+  let positionStyle = positionObj[position].messageStyle;
 
   let instance = getMessageInstance(position);
 
@@ -116,7 +116,7 @@ function notice(content, duration, type, onClose, position) {
     key,
     duration,
     color: type,
-    style: style,
+    style: Object.assign({}, positionStyle, style),
     content: (
       <div>
         <div className={`${clsPrefix}-notice-description-icon`}>
@@ -142,7 +142,8 @@ export default {
       let color = obj.color || 'dark';
       let onClose = obj.onClose || noop;
       let position = obj.position || "top";
-    return notice(content, duration, color, onClose, position);
+      let style = obj.style || {};
+    return notice(content, duration, color, onClose, position, style);
   },
   config(options) {
     if (options.top !== undefined) {
