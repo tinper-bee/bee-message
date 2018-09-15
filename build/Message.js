@@ -102,15 +102,22 @@ var positionObj = {
 
 function getMessageInstance() {
     var position = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'top';
+    var callback = arguments[1];
 
+    if (messageInstance) {
+        callback(messageInstance);
+        return;
+    }
     var style = positionObj[position].notificationStyle;
-    messageInstance = messageInstance || _beeNotification2["default"].newInstance({
+    _beeNotification2["default"].newInstance({
         clsPrefix: clsPrefix,
         transitionName: clsPrefix + '-' + positionObj[position].transitionName,
         style: style, // 覆盖原来的样式
         position: ''
+    }, function (instance) {
+        messageInstance = instance;
+        callback(instance);
     });
-    return messageInstance;
 }
 
 function notice(content, duration, type, onClose, position, style) {
@@ -130,33 +137,35 @@ function notice(content, duration, type, onClose, position, style) {
 
     var positionStyle = positionObj[position].messageStyle;
 
-    var instance = getMessageInstance(position);
-
-    instance.notice({
-        key: key,
-        duration: duration,
-        color: type,
-        style: _extends({}, positionStyle, style),
-        content: _react2["default"].createElement(
-            'div',
-            null,
-            _react2["default"].createElement(
+    getMessageInstance(position, function (instance) {
+        instance.notice({
+            key: key,
+            duration: duration,
+            color: type,
+            style: _extends({}, positionStyle, style),
+            content: _react2["default"].createElement(
                 'div',
-                { className: clsPrefix + '-notice-description-icon' },
-                _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
+                null,
+                _react2["default"].createElement(
+                    'div',
+                    { className: clsPrefix + '-notice-description-icon' },
+                    _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
+                ),
+                _react2["default"].createElement(
+                    'div',
+                    { className: clsPrefix + '-notice-description-content' },
+                    content
+                )
             ),
-            _react2["default"].createElement(
-                'div',
-                { className: clsPrefix + '-notice-description-content' },
-                content
-            )
-        ),
-        onClose: onClose
+            onClose: onClose
+        });
     });
     return function () {
         var target = key++;
         return function () {
-            instance.removeNotice(target);
+            if (messageInstance) {
+                messageInstance.removeNotice(target);
+            }
         };
     }();
 }

@@ -80,15 +80,21 @@ let positionObj = {
     }
 }
 
-function getMessageInstance(position = 'top') {
+function getMessageInstance(position = 'top', callback) {
+    if (messageInstance) {
+        callback(messageInstance);
+        return;
+    }
     var style = positionObj[position].notificationStyle;
-  messageInstance = messageInstance || Notification.newInstance({
-    clsPrefix,
-    transitionName: `${clsPrefix}-${positionObj[position].transitionName}`,
-    style: style, // 覆盖原来的样式
-    position: '',
-  });
-  return messageInstance;
+    Notification.newInstance({
+        clsPrefix,
+        transitionName: `${clsPrefix}-${positionObj[position].transitionName}`,
+        style: style, // 覆盖原来的样式
+        position: '',
+    }, instance => {
+        messageInstance = instance;
+        callback(instance);
+    });
 }
 
 
@@ -110,27 +116,29 @@ function notice(content, duration, type, onClose, position, style) {
 
   let positionStyle = positionObj[position].messageStyle;
 
-  let instance = getMessageInstance(position);
-
-  instance.notice({
-    key,
-    duration,
-    color: type,
-    style: Object.assign({}, positionStyle, style),
-    content: (
-      <div>
-        <div className={`${clsPrefix}-notice-description-icon`}>
-            <i className= { classnames(iconType) } />
-        </div>
-        <div className={`${clsPrefix}-notice-description-content`}>{content}</div>
-      </div>
-    ),
-    onClose,
-  });
+  getMessageInstance(position, instance => {
+    instance.notice({
+        key,
+        duration,
+        color: type,
+        style: Object.assign({}, positionStyle, style),
+        content: (
+          <div>
+            <div className={`${clsPrefix}-notice-description-icon`}>
+                <i className= { classnames(iconType) } />
+            </div>
+            <div className={`${clsPrefix}-notice-description-content`}>{content}</div>
+          </div>
+        ),
+        onClose,
+    });
+  })
   return (function () {
     let target = key++;
     return function () {
-      instance.removeNotice(target);
+      if (messageInstance) {
+        messageInstance.removeNotice(target);
+      }
     };
   }());
 }
