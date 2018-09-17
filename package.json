@@ -37,7 +37,7 @@
  },
  "dependencies": {
   "bee-icon": "^1.0.4",
-  "bee-notification": "^1.0.3",
+  "bee-notification": "^1.1.0",
   "classnames": "^2.2.5",
   "tinper-bee-core": "^0.4.1"
  },
