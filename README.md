@@ -87,6 +87,8 @@ Messsage.create({});
 |onClose|关闭时的钩子函数|function|-|
 |position|位置|top/bottom/topRight/topLeft/bottomRight/bottomLeft|top|
 |style|样式|object|{}|
+|keyboard|esc触发关闭|boolean|true|
+|onEscapeKeyUp|响应ESC键时的钩子函数|function|-|
 ```
 
 #### 开发调试

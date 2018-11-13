@@ -103,24 +103,33 @@ var positionObj = {
 function getMessageInstance() {
     var position = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'top';
     var callback = arguments[1];
+    var keyboard = arguments[2];
+    var onEscapeKeyUp = arguments[3];
 
     if (messageInstance) {
         callback(messageInstance);
         return;
     }
     var style = positionObj[position].notificationStyle;
-    _beeNotification2["default"].newInstance({
+    var instanceObj = {
         clsPrefix: clsPrefix,
         transitionName: clsPrefix + '-' + positionObj[position].transitionName,
         style: style, // 覆盖原来的样式
         position: ''
-    }, function (instance) {
+    };
+    if (typeof keyboard === 'boolean') {
+        instanceObj.keyboard = keyboard;
+    }
+    if (typeof onEscapeKeyUp === 'function') {
+        instanceObj.onEscapeKeyUp = onEscapeKeyUp;
+    }
+    _beeNotification2["default"].newInstance(instanceObj, function (instance) {
         messageInstance = instance;
         callback(instance);
     });
 }
 
-function notice(content, duration, type, onClose, position, style) {
+function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp) {
     var iconType = {
         info: 'uf uf-i-c-2',
         success: 'uf uf-correct',
@@ -159,7 +168,7 @@ function notice(content, duration, type, onClose, position, style) {
             ),
             onClose: onClose
         });
-    });
+    }, keyboard, onEscapeKeyUp);
     return function () {
         var target = key++;
         return function () {
@@ -178,7 +187,7 @@ exports["default"] = {
         var onClose = obj.onClose || noop;
         var position = obj.position || "top";
         var style = obj.style || {};
-        return notice(content, duration, color, onClose, position, style);
+        return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp);
     },
     config: function config(options) {
         if (options.top !== undefined) {

@@ -80,18 +80,25 @@ let positionObj = {
     }
 }
 
-function getMessageInstance(position = 'top', callback) {
+function getMessageInstance(position = 'top', callback, keyboard, onEscapeKeyUp) {
     if (messageInstance) {
         callback(messageInstance);
         return;
     }
     var style = positionObj[position].notificationStyle;
-    Notification.newInstance({
+    let instanceObj = {
         clsPrefix,
         transitionName: `${clsPrefix}-${positionObj[position].transitionName}`,
         style: style, // 覆盖原来的样式
         position: '',
-    }, instance => {
+    }
+    if (typeof keyboard === 'boolean') {
+        instanceObj.keyboard = keyboard;
+    }
+    if (typeof onEscapeKeyUp === 'function') {
+        instanceObj.onEscapeKeyUp = onEscapeKeyUp;
+    }
+    Notification.newInstance(instanceObj, instance => {
         messageInstance = instance;
         callback(instance);
     });
@@ -99,7 +106,7 @@ function getMessageInstance(position = 'top', callback) {
 
 
 
-function notice(content, duration, type, onClose, position, style) {
+function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp) {
   let iconType = ({
     info: 'uf uf-i-c-2',
     success: 'uf uf-correct',
@@ -132,7 +139,7 @@ function notice(content, duration, type, onClose, position, style) {
         ),
         onClose,
     });
-  })
+  }, keyboard, onEscapeKeyUp)
   return (function () {
     let target = key++;
     return function () {
@@ -151,7 +158,7 @@ export default {
       let onClose = obj.onClose || noop;
       let position = obj.position || "top";
       let style = obj.style || {};
-    return notice(content, duration, color, onClose, position, style);
+    return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp);
   },
   config(options) {
     if (options.top !== undefined) {
