@@ -106,7 +106,7 @@ function getMessageInstance(position = 'top', callback, keyboard, onEscapeKeyUp)
 
 
 
-function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp) {
+function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp, showIcon) {
   let iconType = ({
     info: 'uf uf-i-c-2',
     success: 'uf uf-correct',
@@ -131,9 +131,13 @@ function notice(content, duration, type, onClose, position, style, keyboard, onE
         style: Object.assign({}, positionStyle, style),
         content: (
           <div>
-            <div className={`${clsPrefix}-notice-description-icon`}>
-                <i className= { classnames(iconType) } />
-            </div>
+            {
+                showIcon ? (
+                    <div className={`${clsPrefix}-notice-description-icon`}>
+                        <i className= { classnames(iconType) } />
+                    </div>
+                ) : null
+            }
             <div className={`${clsPrefix}-notice-description-content`}>{content}</div>
           </div>
         ),
@@ -158,7 +162,8 @@ export default {
       let onClose = obj.onClose || noop;
       let position = obj.position || "top";
       let style = obj.style || {};
-    return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp);
+      let showIcon = obj.showIcon || false;
+    return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon);
   },
   config(options) {
     if (options.top !== undefined) {

@@ -129,7 +129,7 @@ function getMessageInstance() {
     });
 }
 
-function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp) {
+function notice(content, duration, type, onClose, position, style, keyboard, onEscapeKeyUp, showIcon) {
     var iconType = {
         info: 'uf uf-i-c-2',
         success: 'uf uf-correct',
@@ -155,11 +155,11 @@ function notice(content, duration, type, onClose, position, style, keyboard, onE
             content: _react2["default"].createElement(
                 'div',
                 null,
-                _react2["default"].createElement(
+                showIcon ? _react2["default"].createElement(
                     'div',
                     { className: clsPrefix + '-notice-description-icon' },
                     _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
-                ),
+                ) : null,
                 _react2["default"].createElement(
                     'div',
                     { className: clsPrefix + '-notice-description-content' },
@@ -187,7 +187,8 @@ exports["default"] = {
         var onClose = obj.onClose || noop;
         var position = obj.position || "top";
         var style = obj.style || {};
-        return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp);
+        var showIcon = obj.showIcon || false;
+        return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon);
     },
     config: function config(options) {
         if (options.top !== undefined) {
