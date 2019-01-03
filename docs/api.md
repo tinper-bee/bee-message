@@ -39,3 +39,9 @@ Messsage.create({});
 |keyboard|esc触发关闭|boolean|true|
 |onEscapeKeyUp|响应ESC键时的钩子函数|function|-|
 |showIcon|是否显示icon|boolean|false|
+
+#### 已支持的键盘操作
+
+|按键|功能|
+|:---|:----|
+|esc |关闭message|

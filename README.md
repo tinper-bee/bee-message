@@ -22,7 +22,7 @@ react bee-message component for tinper-bee
 
 ## 使用方法
 
-```js
+```
 const info = function () {
   Message.create({content: 'This is a Info message', color: 'info'});
 };
@@ -38,17 +38,18 @@ class Demo extends Component {
         )
     }
 }
-
 ```
 
 #### 样式引入
 
 - 可以使用link引入build目录下Message.css
+
 ```
 <link rel="stylesheet" href="./node_modules/bee-message/build/Message.css">
 ```
 - 可以在js中import样式
-```js
+
+```
 import "./node_modules/bee-message/src/Message.scss"
 //或是
 import "./node_modules/bee-message/build/Message.css"
@@ -90,7 +91,14 @@ Messsage.create({});
 |keyboard|esc触发关闭|boolean|true|
 |onEscapeKeyUp|响应ESC键时的钩子函数|function|-|
 |showIcon|是否显示icon|boolean|false|
-```
+
+
+#### 已支持的键盘操作
+
+|按键|功能|
+|:---|:----|
+|esc |关闭message|
+
 
 #### 开发调试
 
