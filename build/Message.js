@@ -225,7 +225,7 @@ exports["default"] = {
         var onClose = obj.onClose || noop;
         var position = obj.position || "top";
         var style = obj.style || {};
-        var showIcon = obj.showIcon || true;
+        var showIcon = obj.hasOwnProperty('showIcon') ? obj.showIcon : true;
         return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon);
     },
     config: function config(options) {

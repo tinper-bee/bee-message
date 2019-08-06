@@ -203,7 +203,7 @@ export default {
       let onClose = obj.onClose || noop;
       let position = obj.position || "top";
       let style = obj.style || {};
-      let showIcon = obj.showIcon || true;
+      let showIcon = obj.hasOwnProperty('showIcon') ? obj.showIcon : true;
     return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon);
   },
   config(options) {
