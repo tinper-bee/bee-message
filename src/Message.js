@@ -204,7 +204,7 @@ export default {
       let position = obj.position || "top";
       let style = obj.style || {};
       let showIcon = obj.hasOwnProperty('showIcon') ? obj.showIcon : true;
-      let icon = obj.hasOwnProperty('icon') ? obj.icon : true;
+      let icon = obj.hasOwnProperty('icon') ? obj.icon : false;
     return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon, icon);
   },
   config(options) {
